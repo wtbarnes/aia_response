@@ -10,7 +10,7 @@ before_install:
 before_script:
 - git config user.email "wtb2@rice.edu"
 - git config user.name "Travis CI"
-- git checkout notes
+- git checkout -b notes
 script:
 - ./build_notes.sh
 after_script:
