@@ -36,12 +36,12 @@ The terms in the above equation are as follows,
 * flat field function :math:`F(\mathbf{x})`
 
 According to `Boerner et al. (2012) <http://adsabs.harvard.edu/abs/2012SoPh..275...41B>`_,
-the instrument response function is :math:`R(\lambda)=A_{eff}(\lambda,t)G(\lambda)`.
+the instrument response function is :math:`R(\lambda)=A_{eff}(\lambda,t)G(\lambda)` .
 This should not be confused with the *wavelength response function* of `Boerner et al. (2014) <http://adsabs.harvard.edu/abs/2014SoPh..289.2377B>`_
 :math:`R_i(\lambda)` which is equivalent to :math:`\eta_i` as expressed above.
 
 With all of that out of the way, we want to calculate the *temperature response function*,
-for the :math:`i^{th}` channel :math:`K_i(T)`. This can be expressed as,
+for the :math:`i^{th}` channel :math:`K_i(T)` . This can be expressed as,
 
 .. math::K_i(T)=\int_0^{\infty}\mathrm{d}\lambda\,G(\lambda,T)R_i(\lambda)
 
