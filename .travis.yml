@@ -15,6 +15,7 @@ script:
 after_script:
 - git add README.pdf
 - git commit -m "build notes PDF"
+- git checkout master
 - git push https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git master
 env:
   global:
