@@ -4,8 +4,14 @@ branches:
   only:
   - master
 before_install:
-  - sudo apt-get update -qq
-  - sudo apt-get install -y texlive-latex-recommended texlive-xetex texlive-luatex
-  - sudo apt-get install -y pandoc
+- sudo apt-get update -qq
+- sudo apt-get install -y texlive-latex-recommended texlive-xetex texlive-luatex
+- sudo apt-get install -y pandoc
 script:
-  - ./build_notes.sh
+- ./build_notes.sh
+- git add README.pdf
+- git commit -m "build notes PDF"
+- git push https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git master
+env:
+  global:
+    secure: jgad1npvjc4DAhde72IPrhYGUrTmtBQju5Ms9HUescH85xLxF4Bf1z6yj8ET5w8aNcDyXM/tSTFBU6p6BunhQbl5t/QmMA9epW5qrEe0fBHOgIWnc0WBCWyZFTv0p0lFuRxcN9fjynUvvrVAJold45k48Ka1sxHuh745g/tDVLiuyHFPLJfVtyr3yU4PD3jIQbOA6rqW2AqW/4ve5QTlDCnsOVJ8BuUoM0as97s3Pmgb+RtmtJpUCtdvF7VAtVlZq5+D8UEMu5LyaMEpKmifWJyzhmr6lA6egyoIXFp/SoSNuSIVU1Q3Uf0WTfLOo3bmGxBulab0nHSoYL/LOjTtENGilkSb2M6t2/ekSSEG9fxJjoEFBYwVt/DSGGKt5IjGKZXpi5QdKVoxfsL+ZlcQhwRo6yvBr2TlNQkqHnPMAq6iTLFrNytat/+iOHBM66Q6qsU18ACjo73+c1D/GgH+6r5kIFFEJvqX724mnbAJBm4LwQ5G60muNEkN6WpLtMnPA8tfsbaaqWH0GJtC2OnQ2xsexkhakeyru7Ht6S4nYiL9AqO1w06gskfr5Z/ciK3Ql7z0LagTSJCEAUBoOcy3zuGLBqCl07349wTeuNd0UfsC8l2hHlUmplMlXDQ+mPb3d3loRe/qy7jtmNhyehfYOdsYsGN2KnOCPU96fGLLJHc=
