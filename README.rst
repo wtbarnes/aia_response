@@ -26,9 +26,7 @@ For a given position in the image plane :math:`\mathbf{x}` and wavelength channe
 Here, :math:`\eta_i(\lambda,t,\mathbf{x})` is the efficiency function of the :math:`i^{th}` channel.
 It can be expressed as,
 
- .. math::
-
-    \eta=A_{eff}(\lambda,t)G(\lambda)F(\mathbf{x})
+ .. math::\eta=A_{eff}(\lambda,t)G(\lambda)F(\mathbf{x})
 
 The terms in the above equation are as follows,
 
@@ -44,9 +42,7 @@ This should not be confused with the *wavelength response function* of `Boerner 
 With all of that out of the way, we want to calculate the *temperature response function*,
 for the :math:`i^{th}` channel :math:`K_i(T)`. This can be expressed as,
 
-.. math::
-
-    K_i(T)=\int_0^{\infty}\mathrm{d}\lambda\,G(\lambda,T)R_i(\lambda)
+.. math::K_i(T)=\int_0^{\infty}\mathrm{d}\lambda\,G(\lambda,T)R_i(\lambda)
 
 Thus, we can calculate the AIA temperature response functions by folding the
 instrument response function of through the contribution function :math:`G(\lambda,T)`
