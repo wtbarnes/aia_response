@@ -8,7 +8,7 @@ before_install:
 - sudo apt-get install -y texlive-latex-recommended texlive-xetex texlive-luatex
 - sudo apt-get install -y pandoc
 before_script:
-- git config user.email "wtb2@rice.edu"
+- git config user.email "Travis CI"
 - git config user.name "Travis CI"
 - git checkout -b notes
 script:
