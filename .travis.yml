@@ -7,8 +7,12 @@ before_install:
 - sudo apt-get update -qq
 - sudo apt-get install -y texlive-latex-recommended texlive-xetex texlive-luatex
 - sudo apt-get install -y pandoc
+before_script:
+- git config user.email "wtb2@rice.edu"
+- git config user.name "Travis CI"
 script:
 - ./build_notes.sh
+after_script:
 - git add README.pdf
 - git commit -m "build notes PDF"
 - git push https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git master
