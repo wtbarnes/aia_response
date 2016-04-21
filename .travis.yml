@@ -1,0 +1,10 @@
+language: python
+sudo: required
+branches:
+  only:
+  - master
+before install:
+  - sudo apt-get update -qq
+  - sudo apt-get install -y pandoc
+script:
+  - pandoc -V geometry:a4paper -f rst --smart -o README.pdf README.rst
