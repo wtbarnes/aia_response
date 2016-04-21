@@ -10,12 +10,12 @@ before_install:
 before_script:
 - git config user.email "wtb2@rice.edu"
 - git config user.name "Travis CI"
+- git checkout master
 script:
 - ./build_notes.sh
 after_script:
 - git add README.pdf
 - git commit -m "build notes PDF"
-- git checkout master
 - git push https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git master
 env:
   global:
