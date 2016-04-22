@@ -42,7 +42,7 @@ def make_aia_response_function_plots(raw_response_file,fix_response_file):
     ax[0].legend(loc='best',fontsize=14)
 
     plt.tight_layout()
-    plt.savefig('aia_sample_data/aia_response_functions.png',format='png',dpi=1000)
+    plt.savefig('aia_sample_data/aia_response_functions.png',format='png')
 
 if __name__=='__main__':
     make_aia_response_function_plots('aia_sample_data/aia_tresponse_raw.dat','aia_sample_data/aia_tresponse_fix.dat')
