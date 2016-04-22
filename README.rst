@@ -14,6 +14,14 @@ We'll rely primarily on two papers for looking at the AIA response functions:
 * `Boerner et al. (2012) <http://adsabs.harvard.edu/abs/2012SoPh..275...41B>`_
 * `Boerner et al. (2014) <http://adsabs.harvard.edu/abs/2014SoPh..289.2377B>`_
 
+.. figure:: aia_sample_data/aia_response_functions.png
+   :scale: 100 %
+   :alt: SDO/AIA temperature response functions
+
+   SDO/AIA temperature response functions unnormalized (left) and normalized right for
+   the six EUV channels as calculated by the aia_get_response function in SSW. The dashed lines
+   are the response functions calculated with the Chianti correction as discussed in Boerner et al. (2014).
+
 Formalism
 ##########
 

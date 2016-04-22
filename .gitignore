@@ -60,3 +60,9 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
+
+#Ignore data files
+*.dat
+
+#Ignore built pdf of notes
+README.pdf
