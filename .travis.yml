@@ -14,7 +14,7 @@ before_script:
 script:
 - ./build_notes.sh
 after_script:
-- git add README.pdf
+- git add -f README.pdf
 - git commit -m "build notes PDF"
 - git push https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git notes --force
 env:
