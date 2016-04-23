@@ -1,13 +1,16 @@
-#name:plot_aia_response_functions.py
+#name:make_figures.py
 #author:Will Barnes
-#Description:Plot AIA temperature response functions as computed by SSW
+#Description: make some figures useful to notes on AIA response functions
 
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn.apionly as sns
 
-def make_aia_response_function_plots(raw_response_file,fix_response_file):
-    """Plot AIA temperature response functions"""
+def display_aia_response_control_flow():
+    """Show the control flow of the IDL programs used to compute AIA response functions"""
+
+def plot_aia_response_functions(raw_response_file,fix_response_file):
+    """Plot AIA temperature response functions as computed by SSW"""
 
     #Load data
     raw_tresp,fix_tresp = np.loadtxt(raw_response_file),np.loadtxt(fix_response_file)
@@ -42,7 +45,7 @@ def make_aia_response_function_plots(raw_response_file,fix_response_file):
     ax[0].legend(loc='best',fontsize=14)
 
     plt.tight_layout()
-    plt.savefig('aia_sample_data/aia_response_functions.png',format='png')
+    plt.savefig('figures/aia_response_functions.png',format='png')
 
 if __name__=='__main__':
-    make_aia_response_function_plots('aia_sample_data/aia_tresponse_raw.dat','aia_sample_data/aia_tresponse_fix.dat')
+    plot_aia_response_functions('aia_sample_data/aia_tresponse_raw.dat','aia_sample_data/aia_tresponse_fix.dat')
