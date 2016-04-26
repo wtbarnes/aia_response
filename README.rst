@@ -51,7 +51,7 @@ This should not be confused with the *wavelength response function* of `Boerner 
 With all of that out of the way, we want to calculate the *temperature response function*,
 for the :math:`i^{th}` channel :math:`K_i(T)` . This can be expressed as,
 
-.. math::K_i(T)=\int_0^{\infty}\mathrm{d}\lambda\,G(\lambda,T)R_i(\lambda)
+ .. math::K_i(T)=\int_0^{\infty}\mathrm{d}\lambda\,G(\lambda,T)R_i(\lambda)
 
 Thus, we can calculate the AIA temperature response functions by folding the
 instrument response function of through the contribution function :math:`G(\lambda,T)`
@@ -65,3 +65,22 @@ Some questions about how this will be implemented:
 * Where does this functionality belong in SunPy?
 * What is the best way to get the atomic data from ChiantiPy?
 * What amount of time should be spent making contributions to ChiantiPy?
+
+Atomospheric Imaging Assembly on SDO
+#####################################
+
+ChiantiPy
+##########
+ChiantiPy is the Python interface to the CHIANTI atomic database. It provides ways to query atomic data as well as perform calculations with/on the data. The main quantity that we will want to retrieve from CHIANTI/ChiantiPy is the *contribution function* :math:`G(\lambda,T)`. 
+
+Calculations
+***************
+
+Interactions with SunPy
+************************
+
+Improvements to ChiantiPy
+**************************
+
+Meeting Notes
+##############
