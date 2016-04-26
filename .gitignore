@@ -66,3 +66,6 @@ target/
 
 #Ignore built pdf of notes
 README.pdf
+
+#Ignore converted eps files
+*-eps-converted-to.pdf

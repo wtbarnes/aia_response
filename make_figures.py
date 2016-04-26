@@ -45,7 +45,7 @@ def plot_aia_response_functions(raw_response_file,fix_response_file):
     ax[0].legend(loc='best',fontsize=14)
 
     plt.tight_layout()
-    plt.savefig('figures/aia_response_functions.png',format='png')
+    plt.savefig('figures/aia_response_functions.eps',format='eps')
 
 if __name__=='__main__':
     plot_aia_response_functions('aia_sample_data/aia_tresponse_raw.dat','aia_sample_data/aia_tresponse_fix.dat')

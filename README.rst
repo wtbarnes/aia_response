@@ -2,6 +2,8 @@
 aia_response: Calculate the *SDO/AIA* temperature response functions with SunPy and ChiantiPy
 ********************************************************************************************************
 
+.. note:: A PDF of these notes is available on the `notes` branch of this repository. Alternatively, you can build the PDF from the reStructured text by running `./build_notes.sh`, provided you've installed `pandoc <http://pandoc.org/>`_.
+
 Here are some preliminary notes on implementing the AIA response functions with ChiantiPy and SunPy.
 Currently, the only way to calculate these is with the routines provided in SSW. There is little
 supporting documentation for these routines.
@@ -14,7 +16,7 @@ We'll rely primarily on two papers for looking at the AIA response functions:
 * `Boerner et al. (2012) <http://adsabs.harvard.edu/abs/2012SoPh..275...41B>`_
 * `Boerner et al. (2014) <http://adsabs.harvard.edu/abs/2014SoPh..289.2377B>`_
 
-.. figure:: figures/aia_response_functions.png
+.. figure:: figures/aia_response_functions.eps
    :scale: 100 %
    :alt: SDO/AIA temperature response functions
 
@@ -67,7 +69,7 @@ Some questions about how this will be implemented:
 * What amount of time should be spent making contributions to ChiantiPy?
 
 Atomospheric Imaging Assembly (AIA) on SDO
-#####################################
+###########################################
 [Lemen et al. (2012)](http://adsabs.harvard.edu/abs/2012SoPh..275...17L) provide an in-depth look at the AIA instrument. We will focus on the six EUV channels that AIA uses to image "warm" to "hot" plasma in the solar corona.
 
 ChiantiPy
