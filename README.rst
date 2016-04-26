@@ -66,12 +66,13 @@ Some questions about how this will be implemented:
 * What is the best way to get the atomic data from ChiantiPy?
 * What amount of time should be spent making contributions to ChiantiPy?
 
-Atomospheric Imaging Assembly on SDO
+Atomospheric Imaging Assembly (AIA) on SDO
 #####################################
+[Lemen et al. (2012)](http://adsabs.harvard.edu/abs/2012SoPh..275...17L) provide an in-depth look at the AIA instrument. We will focus on the six EUV channels that AIA uses to image "warm" to "hot" plasma in the solar corona.
 
 ChiantiPy
 ##########
-ChiantiPy is the Python interface to the CHIANTI atomic database. It provides ways to query atomic data as well as perform calculations with/on the data. The main quantity that we will want to retrieve from CHIANTI/ChiantiPy is the *contribution function* :math:`G(\lambda,T)`. 
+ChiantiPy is the Python interface to the CHIANTI atomic database. It provides ways to query atomic data as well as perform calculations with/on the data. The main quantity that we will want to retrieve from CHIANTI/ChiantiPy is the *contribution function* :math:`G(\lambda,T)`.
 
 Calculations
 ***************

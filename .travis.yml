@@ -11,6 +11,7 @@ before_script:
 - git config user.email "Travis CI"
 - git config user.name "Travis CI"
 - git checkout -b notes
+- rm README.pdf
 script:
 - ./build_notes.sh
 after_script:
