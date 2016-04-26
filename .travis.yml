@@ -5,7 +5,7 @@ branches:
   - master
 before_install:
 - sudo apt-get update -qq
-#- sudo apt-get install -y texlive-latex-recommended texlive-xetex texlive-luatex
+- sudo apt-get install -y texlive #-latex-recommended texlive-xetex texlive-luatex
 - sudo apt-get install -y pandoc
 before_script:
 - git config user.email "Travis CI"
