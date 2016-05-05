@@ -69,12 +69,38 @@ ChiantiPy is the Python interface to the CHIANTI atomic database. It provides wa
 
 Calculations
 ***************
+See `Mason and Fossi (1994) <http://adsabs.harvard.edu/abs/1994A%26ARv...6..123M>`_. This will serve as a brief summary for the context of the contribution function :math:`G(\lambda,T)`, and its role in the calculation of the intensity :math:`I_{\lambda}` and the emission measure :math:`\mathrm{EM}(T)` (or differential emission measure :math:`\mathrm{DEM}(T)`).
 
+Consider the case of *bound-bound emission*, where an atom of charge state :math:`+m` (i.e. has been stripped of :math:`m` electrons) in an excited state decays to a lower energy state and emits a photon of energy :math:`\Delta E_{i,j}=h\nu_{i,j}=hc/\lambda_{i,j}`. The emissivity can be expressed as,
+
+ .. math:: P_{i,j}=N_j(X^{+m})A_{j,i}\frac{hc}{\lambda_{i,j}},
+
+where :math:`A_{j,i}` is the Einstein spontaneous emission coefficient, :math:`N_j(X^{+m})` is the number density of the atoms in excited state :math:`j` in charge state :math:`+m` which can itself be expressed as,
+
+ .. math:: N_j(X^{+m}) = \frac{N_j(X^{+m})}{N(X^{+m})}\frac{N(X^{+m})}{N(X)}\frac{N(X)}{N(H)}\frac{N(H)}{N_e}N_e.
+
+The first ratio is population of level j relative total number density of :math:`+m` ions. The second ratio is the *ionization state* of the plasma and is predominantly a function of temperature. The third ratio is the relative abundance of element :math:`X` to hydrogen. The fourth ratio is the relative hydrogen abundance and can be approximated as :math:`\sim0.83`. Finally, the last term is the electron density.
+
+We then use the *coronal model approximation* (which says that all transitions occur between excited state :math:`j` and ground state :math:`g` and that excitation occurs only via collisions and de-excitation only through radiative decay) to express the first ratio,
+
+ .. math:: N_g(X^{+m})N_eC^e_{g,j} = N_j(X^{+m})A_{j,g}.
+
+Plugging this into the emissivity equation,
+
+ .. math:: P_{g,j}(\lambda) = 0.83\mathrm{Ab}(X)G(T,\lambda_{g,j})N_e^2\frac{hc}{\lambda_{g,j}}.
+
+The third term here is the contribution function we've been looking for,
+
+ .. math:: G(T,\lambda_{g,j}) = \frac{N(X^{+m})}{N(X)}C^e_{g,j}.
+
+Essentially, this tells us how much a particular transition :math:`\lambda_{g,j}` contributes to the emissivity at a given temperature :math:`T`. :math:`G(T,\lambda_{g,j})` is strongly peaked in temperature because of the population fraction :math:`N(X^{+m})/N(X)`. 
+
+Improvements to Codebase
+**************************
 Interactions with SunPy
 ************************
 
-Improvements to ChiantiPy
-**************************
-
+SunPy
+######
 Meeting Notes
 ##############
