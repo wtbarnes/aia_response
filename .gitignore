@@ -1,3 +1,6 @@
+#Ignore ssw data
+ssw_aia_response_data/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

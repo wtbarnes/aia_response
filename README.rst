@@ -93,14 +93,39 @@ The third term here is the contribution function we've been looking for,
 
  .. math:: G(T,\lambda_{g,j}) = \frac{N(X^{+m})}{N(X)}C^e_{g,j}.
 
-Essentially, this tells us how much a particular transition :math:`\lambda_{g,j}` contributes to the emissivity at a given temperature :math:`T`. :math:`G(T,\lambda_{g,j})` is strongly peaked in temperature because of the population fraction :math:`N(X^{+m})/N(X)`. 
+Essentially, this tells us how much a particular transition :math:`\lambda_{g,j}` contributes to the emissivity at a given temperature :math:`T`. :math:`G(T,\lambda_{g,j})` is strongly peaked in temperature because of the population fraction :math:`N(X^{+m})/N(X)`.
 
 Improvements to Codebase
 **************************
 Interactions with SunPy
 ************************
-
 SunPy
 ######
+Mostly SunPy will serve to store the routines. Use AstroPy units to be compliant with the rest of SunPy/AstroPy. Thus far, the directory structure relevant to our project looks like::
+
+	sunpy/
+	|___sunpy/
+		|___...
+			instr/
+			|___...
+				aia/
+				|___aiaprep.py
+					response.py
+					
+So now there are multiple routines inside of the aia/ directory. At some point, we may want to make the response functions more general so that they can be used by other instruments as well.
+
+
+Application
+############
+Some notes about the practical applications of this project, i.e. "How are we going to do this?"
+
+IDL
+####
+Some notes on the actual IDL routines and what they do. 
+
 Meeting Notes
 ##############
+2 May 2016
+***********
+16 May 2016
+************
