@@ -129,3 +129,11 @@ Meeting Notes
 ***********
 16 May 2016
 ************
+27 June 2016
+*************
+
+* Separate genx file reader from everything else
+* All instrument/channel information should be read into an Astropy table
+* Distinction between channel and wavelength, one is discrete, the other continuous
+* Make sure that every part of the class is agnostic to the way the data is read in
+* Constructure takes in a list of channels and thats all, checks them
