@@ -63,6 +63,16 @@ Atomospheric Imaging Assembly (AIA) on SDO
 ###########################################
 `Lemen et al. (2012) <http://adsabs.harvard.edu/abs/2012SoPh..275...17L>`_ provide an in-depth look at the AIA instrument. We will focus on the six EUV channels that AIA uses to image "warm" to "hot" plasma in the solar corona.
 
+CCD Gain
+**********
+A few notes on the somewhat arbitrary equation for the CCD gain, :math:`G(\lambda)`. First, we note that :math:`G` is said to be measured in DN per photon while :math:`g` is measured in DN per electron. The first factor in the expression is :math:`12398/\lambda`. This is conversion factor for electron volts (eV) per photon. The energy of a photon can be expressed as :math:`E=hc/\lambda`. Expressing Planck's constant in eV gives and the speed of light (perhaps somewhat unconventionally) in angstroms per second gives :math:`hc=(4.135667\times10^{-15}\,\mathrm{eV}\,\mathrm{s})(2.99792458\times10^{18}\,\mathrm{angstrom}\,\mathrm{s}^{-1})\approx12398\,\mathrm{eV}\,\mathrm{angstrom}`.
+
+Similarly, the :math:`1/3.65` is a conversion factor for electrons per eV. It is worth noting that this is stored in the .genx SSW file for each channel under the keyword :code:`ELECPEREV`.
+
+In the expression for :math:`G(\lambda)` in `Boerner et al. (2012) <http://adsabs.harvard.edu/abs/2012SoPh..275...41B>`_, :math:`g` is referred to as the camera gain with units of DN per electron. The third column of Table 6 lists the gain for each camera in units of electron per DN. The numbers from this table are included in the .genx SSW file under the keyword :code:`ELECPERDN`. However, it seems that this field in the data file is not just :math:`1/g` as calculating :math:`G` in this manner gives answers that are close to, but not exactly, the values of :math:`G` found in the second to last row of Table 2 (for the wavelength of the strongest line in each channel).
+
+So the question then is what exactly is :math:`g` and where do we get the information we need to calculate it?
+
 ChiantiPy
 ##########
 ChiantiPy is the Python interface to the CHIANTI atomic database. It provides ways to query atomic data as well as perform calculations with/on the data. The main quantity that we will want to retrieve from CHIANTI/ChiantiPy is the *contribution function* :math:`G(\lambda,T)`.
@@ -111,7 +121,7 @@ Mostly SunPy will serve to store the routines. Use AstroPy units to be compliant
 				aia/
 				|___aiaprep.py
 					response.py
-					
+
 So now there are multiple routines inside of the aia/ directory. At some point, we may want to make the response functions more general so that they can be used by other instruments as well.
 
 
@@ -121,7 +131,7 @@ Some notes about the practical applications of this project, i.e. "How are we go
 
 IDL
 ####
-Some notes on the actual IDL routines and what they do. 
+Some notes on the actual IDL routines and what they do.
 
 Meeting Notes
 ##############
