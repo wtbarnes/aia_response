@@ -1,8 +1,10 @@
-PRO PLOT_AIA_TEMPERATURE_RESPONSE
+PRO PRINT_AIA_RESPONSE_FUNCTIONS
   ;Calculate response functions
   raw_tresp = aia_get_response(/temp,/dn,/evenorm)
   ;Calculate response functions with chianti fix (see Boerner et al, 2014)
   fix_tresp = aia_get_response(/temp,/dn,/chiantifix,/evenorm)
+  ;Calculate wavelength response function for comparison purposes (in units of cm^2 DN pixel^-1)
+  raw_wresp = aia_get_response(/area,/dn)
 
   ;Reshape to matrix
   ;raw
@@ -25,6 +27,16 @@ PRO PLOT_AIA_TEMPERATURE_RESPONSE
   fix_tresp_mat[*,4] = fix_tresp.a193.tresp
   fix_tresp_mat[*,5] = fix_tresp.a211.tresp
   fix_tresp_mat[*,6] = fix_tresp.a335.tresp
+  ;wavelength response
+  raw_wresp_mat = make_array(n_elements(raw_wresp.wave),7+1)
+  raw_wresp_mat[*,0] = raw_wresp.wave
+  raw_wresp_mat[*,1] = raw_wresp.a94.ea
+  raw_wresp_mat[*,2] = raw_wresp.a131.ea
+  raw_wresp_mat[*,3] = raw_wresp.a171.ea
+  raw_wresp_mat[*,4] = raw_wresp.a193.ea
+  raw_wresp_mat[*,5] = raw_wresp.a211.ea
+  raw_wresp_mat[*,6] = raw_wresp.a304.ea
+  raw_wresp_mat[*,7] = raw_wresp.a335.ea
 
   ;Save data to file
   OpenW,lun,'aia_tresponse_raw.dat',/get_lun,width=1000
@@ -32,6 +44,9 @@ PRO PLOT_AIA_TEMPERATURE_RESPONSE
   free_lun,lun
   OpenW,lun,'aia_tresponse_fix.dat',/get_lun,width=1000
   printf,lun,transpose(fix_tresp_mat)
+  free_lun,lun
+  OpenW,lun,'aia_wresponse_raw.dat',/get_lun,width=1000
+  printf,lun,transpose(raw_wresp_mat)
   free_lun,lun
 
   ;Plot parameters
