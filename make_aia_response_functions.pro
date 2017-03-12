@@ -41,13 +41,13 @@ PRO PRINT_AIA_RESPONSE_FUNCTIONS
   raw_wresp_mat[*,7] = raw_wresp.a335.ea
 
   ;Save data to file
-  OpenW,lun,'aia_tresponse_raw.dat',/get_lun,width=1000
+  OpenW,lun,'aia_sample_data/aia_tresponse_raw.dat',/get_lun,width=1000
   printf,lun,transpose(raw_tresp_mat)
   free_lun,lun
-  OpenW,lun,'aia_tresponse_fix.dat',/get_lun,width=1000
+  OpenW,lun,'aia_sample_data/aia_tresponse_fix.dat',/get_lun,width=1000
   printf,lun,transpose(fix_tresp_mat)
   free_lun,lun
-  OpenW,lun,'aia_wresponse_raw.dat',/get_lun,width=1000
+  OpenW,lun,'aia_sample_data/aia_wresponse_raw.dat',/get_lun,width=1000
   printf,lun,transpose(raw_wresp_mat)
   free_lun,lun
 
