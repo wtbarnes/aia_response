@@ -1,14 +1,14 @@
 PRO PRINT_AIA_RESPONSE_FUNCTIONS
   ;Calculate response functions
-  raw_tresp = aia_get_response(/temp,/dn,/evenorm)
+  raw_tresp = aia_get_response(/temp,/dn)
   ;Calculate response functions with chianti fix (see Boerner et al, 2014)
-  fix_tresp = aia_get_response(/temp,/dn,/chiantifix,/evenorm)
+  fix_tresp = aia_get_response(/temp,/dn,/chiantifix)
   ;Calculate wavelength response function for comparison purposes (in units of cm^2 DN pixel^-1)
   raw_wresp = aia_get_response(/area,/dn)
 
   ;Reshape to matrix
   ;raw
-  raw_tresp_mat = make_array(n_elements(raw_tresp.logte),6+1)
+  raw_tresp_mat = make_array(n_elements(raw_tresp.logte),7+1)
   ;put response functions and temperature in matrix
   raw_tresp_mat[*,0] = raw_tresp.logte
   raw_tresp_mat[*,1] = raw_tresp.a94.tresp
@@ -16,9 +16,10 @@ PRO PRINT_AIA_RESPONSE_FUNCTIONS
   raw_tresp_mat[*,3] = raw_tresp.a171.tresp
   raw_tresp_mat[*,4] = raw_tresp.a193.tresp
   raw_tresp_mat[*,5] = raw_tresp.a211.tresp
-  raw_tresp_mat[*,6] = raw_tresp.a335.tresp
+  raw_tresp_mat[*,6] = raw_tresp.a304.tresp
+  raw_tresp_mat[*,7] = raw_tresp.a335.tresp
   ;chianti correction
-  fix_tresp_mat = make_array(n_elements(fix_tresp.logte),6+1)
+  fix_tresp_mat = make_array(n_elements(fix_tresp.logte),7+1)
   ;put response functions and temperature in matrix
   fix_tresp_mat[*,0] = fix_tresp.logte
   fix_tresp_mat[*,1] = fix_tresp.a94.tresp
@@ -26,7 +27,8 @@ PRO PRINT_AIA_RESPONSE_FUNCTIONS
   fix_tresp_mat[*,3] = fix_tresp.a171.tresp
   fix_tresp_mat[*,4] = fix_tresp.a193.tresp
   fix_tresp_mat[*,5] = fix_tresp.a211.tresp
-  fix_tresp_mat[*,6] = fix_tresp.a335.tresp
+  fix_tresp_mat[*,6] = fix_tresp.a304.tresp
+  fix_tresp_mat[*,7] = fix_tresp.a335.tresp
   ;wavelength response
   raw_wresp_mat = make_array(n_elements(raw_wresp.wave),7+1)
   raw_wresp_mat[*,0] = raw_wresp.wave
